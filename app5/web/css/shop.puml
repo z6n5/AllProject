@@ -1,0 +1,97 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+用户USER <- 订单ORDERS
+订单ORDERS <-- 订单详情
+订单详情 --> 车票TICKETS
+车票TICKETS --> 车次TRAIN
+车次TRAIN<--途径PASS
+途径PASS -->站点STATION
+管理员ADMIN<-车次TRAIN
+用户USER<-车票TICKETS
+票价TICKET_PRICE <-车票TICKETS
+座位SEATS<-车票TICKETS
+途径PASS<-座位SEATS
+
+
+class 用户USER{
+-用户ID  UserID;
+-姓名 UserName;
+-密码 uPassword;
+-身份证号 IDnumber;
+-手机号码 uPhone;
+void selectOrder();
+void addOrder();
+void selectTickets();
+
+}
+class 订单ORDERS{
+-订单ID OrderID;
+-订单时间 OrderTime;
+-总价 TotalPrice;
+-数量 TotalAmount;
+-订购人ID UserID;
+}
+class 订单详情{
+-订单ID OrderID;
+-车票ID TicketID;
+-车次ID TrainID;
+}
+class 车票TICKETS{
+-车票ID TicketID;
+-座位ID SeatID;
+-票价ID Price_ID;
+-乘客ID UserID;
+}
+class 车次TRAIN{
+-车次ID TrainID;
+-管理员ID AdminID;
+-一等座数量 Seat1Num;
+-二等座数量 Seat2Num;
+-无座数量 StandingNum;
+-软卧数量 Sleeper1Num;
+-硬卧数量 Sleeper2Num;
+}
+class 途径PASS{
+-途径ID PassID;
+-站点ID StationID;
+-车次ID TrainID;
+-到达时间 ArriveTime;
+-发车时间 LeavingTime;
+}
+class 站点STATION{
+-站点ID StationID;
+-站点名称 StationName;
+}
+class 票价TICKET_PRICE{
+-票价ID Price_ID;
+-车次ID TrainID;
+-站点1ID Station1ID;
+-站点2ID Station2ID;
+-一等座价格 Seat1Price;
+-二等座价格 Seat2Price;
+-无座价格 StandingPrice;
+-软卧价格 Sleeper1Price;
+-硬卧价格 Sleeper2Price;
+}
+class 座位SEATS{
+-座位ID SeatID;
+-途径ID PassID;
+-SeatClass;
+-是否为空;
+}
+class 管理员ADMIN{
+-管理员ID AdminID;
+-姓名 AdminName;
+-密码 aPassword;
+-手机号码 aPhone;
+void addUser();
+void delUser();
+void selectUser();
+void updateUser();
+void selectOrder();
+void selectTickets();
+void delOrder();
+void delTickets();
+}
+@enduml

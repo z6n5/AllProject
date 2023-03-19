@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+left to right direction
+actor 管理员 as g
+
+rectangle rectangle{
+
+  usecase "登录" as uc1
+  usecase "用户管理" as uc2
+  usecase "车票订单管理" as uc3
+  usecase "改签管理" as uc4
+  usecase "退票管理" as uc5
+  usecase "公告栏管理" as uc6
+  usecase "站点管理" as uc7
+  }
+ g -|>uc1 :<<uses>>
+ g -|>uc2:<<uses>>
+  g -|>uc3:<<uses>>
+   g -|>uc4:<<uses>>
+    g -|>uc5:<<uses>>
+     g -|>uc6:<<uses>>
+      g -|>uc7:<<uses>>
+@enduml

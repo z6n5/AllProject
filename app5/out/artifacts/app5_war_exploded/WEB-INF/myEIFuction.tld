@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+    <description>My functions library</description>
+    <display-name>My functions</display-name>
+    <tlib-version>1.0</tlib-version>
+    <short-name>myfn</short-name>
+
+    <uri>http://cdu.wx/functions</uri>
+<function>
+    <description>显示货币形式的金额</description>
+    <name>currency</name>
+    <function-class>cdu.wx.app.taglibs.MyEIFunctions</function-class>
+    <function-signature>java.lang.String currency(java.math.BigDecimal)</function-signature>
+    <example>
+        money:${myfn:currency(money}
+    </example>
+</function>
+    <function>
+        <description>格式化日期</description>
+        <name>formatDate</name>
+        <function-class>cdu.wx.app.taglibs.MyEIFunctions</function-class>
+        <function-signature>java.lang.String formatDate(long)</function-signature>
+        <example>
+            date:${myfn:formatDate(datetime}
+        </example>
+    </function>
+
+<function>
+<description>格式化日期时间</description>
+<name>formatDatetime</name>
+<function-class>cdu.wx.app.taglibs.MyEIFunctions</function-class>
+<function-signature>java.lang.String formatDatetime(long)</function-signature>
+<example>
+    datetime:${myfn:formatDatetime(datetime}
+</example>
+</function>
+    <!-- Invoke 'Generate' action to add tags or functions -->
+
+</taglib>
